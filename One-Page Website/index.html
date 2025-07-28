@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fadya Alkarkulli Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      scroll-behavior: smooth;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #c00;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #0066cc;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: #004080;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    #home {
+      background-color: #ffe5e5;
+    }
+
+    #gallery {
+      background-color: #e5f0ff;
+    }
+
+    #contact {
+      background-color: #ffe5e5;
+    }
+
+    #videos {
+      background-color: #e5f0ff;
+    }
+
+    footer {
+      background-color: #c00;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    img {
+      max-width: 30%;
+      height: auto;
+      margin: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, textarea {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #004080;
+    }
+/* Lightbox Styles */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px white;
+}
+
+#lightbox .close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Our Red & Blue Website</h1>
+    <p>Explore pictures, videos, and Contact form!</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#videos">Videos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h2>Home Section</h2>
+    <p>This is the home section of My one-page site.</p>
+  </section>
+
+<section id="gallery">
+  <h2>Picture Gallery</h2>
+  <img class="lightbox-img" src="https://cdn.pixabay.com/photo/2017/10/30/18/44/hacking-2903156_1280.jpg" alt="Sample Image">
+  <img class="lightbox-img" src="https://cdn.pixabay.com/photo/2017/10/30/18/44/hacking-2903156_1280.jpg" alt="Sample Image">
+  <img class="lightbox-img" src="https://cdn.pixabay.com/photo/2017/10/30/18/44/hacking-2903156_1280.jpg" alt="Sample Image">
+</section>
+
+  <section id="videos">
+    <h2>Videos</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dc6q04o8Y6o?si=1_6_gyEvC-wPXin6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message">
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Fadya Alkarkulli Website. All rights reserved.</p>
+  </footer>
+<!-- Lightbox Modal -->
+<div id="lightbox" style="display:none;">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.querySelector('#lightbox .close');
+
+  document.querySelectorAll('.lightbox-img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // Optional: Close on outside click
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
